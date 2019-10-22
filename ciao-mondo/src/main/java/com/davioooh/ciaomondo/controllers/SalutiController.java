@@ -18,6 +18,12 @@ public class SalutiController {
                 .addObject("userAgent", userAgent);
     }
 
+    @GetMapping("{nome}")
+    public ModelAndView unSalutoConUrlPlaceholder(@PathVariable("nome") String nome) {
+        return new ModelAndView("ciao-mondo")
+                .addObject("nome", nome);
+    }
+
     @GetMapping(params = "mio-parametro")
     public String unSalutoConParametro() {
         return "ciao-mondo-param";
