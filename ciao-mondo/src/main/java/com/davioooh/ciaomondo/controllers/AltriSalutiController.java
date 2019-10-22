@@ -23,4 +23,5 @@ public class AltriSalutiController {
     public String nome() {
         return "David";
     }
+
 }
