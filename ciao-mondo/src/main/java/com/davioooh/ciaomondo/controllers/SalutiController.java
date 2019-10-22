@@ -1,20 +1,27 @@
 package com.davioooh.ciaomondo.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @Controller
 @RequestMapping("/")
 public class SalutiController {
 
-    @RequestMapping(method = GET)
-    public ModelAndView unSaluto() {
+    @GetMapping
+    public ModelAndView unSaluto(
+            @RequestParam("nome") String nome,
+            @RequestHeader("User-Agent") String userAgent
+    ) {
         return new ModelAndView("ciao-mondo")
-                .addObject("nome", "David");
+                .addObject("nome", nome)
+                .addObject("userAgent", userAgent);
+    }
+
+    @GetMapping("{username}")
+    public ModelAndView unSalutoConUrlPlaceholder(@PathVariable("username") String username) {
+        return new ModelAndView("ciao-mondo-username")
+                .addObject("username", username);
     }
 
     @GetMapping(params = "mio-parametro")
@@ -26,4 +33,5 @@ public class SalutiController {
     public String unSalutoConHeader() {
         return "ciao-mondo-header";
     }
+
 }
