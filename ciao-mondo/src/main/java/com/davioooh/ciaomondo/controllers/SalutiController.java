@@ -18,7 +18,7 @@ public class SalutiController {
                 .addObject("userAgent", userAgent);
     }
 
-    @GetMapping("{username}")
+    @GetMapping("/{username}")
     public ModelAndView unSalutoConUrlPlaceholder(@PathVariable("username") String username) {
         return new ModelAndView("ciao-mondo-username")
                 .addObject("username", username);
