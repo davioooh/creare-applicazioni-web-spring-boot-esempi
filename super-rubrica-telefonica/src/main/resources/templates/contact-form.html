@@ -9,16 +9,36 @@
     <link rel="stylesheet" th:href="@{/main.css}"/>
 </head>
 <body>
-<form th:action="@{/contacts/new}" th:object="${contactForm}" method="post">
+<form th:action="@{/contacts/new}" th:object="${contactForm}"
+      method="post">
     <h2>Nuovo contatto</h2>
     <div class="form-group">
-        <label>Nome</label> <input th:field="*{firstName}" type="text" class="form-control"/>
+        <label>Nome</label>
+        <input th:field="*{firstName}" type="text" class="form-control"/>
+        <div th:if="${#fields.hasErrors('firstName')}">
+            <span th:errors="*{firstName}" class="text-danger"></span>
+        </div>
     </div>
     <div class="form-group">
-        <label>Cognome</label> <input th:field="*{lastName}" type="text" class="form-control"/>
+        <label>Cognome</label>
+        <input th:field="*{lastName}" type="text" class="form-control"/>
+        <div th:if="${#fields.hasErrors('lastName')}">
+            <span th:errors="*{lastName}" class="text-danger"></span>
+        </div>
     </div>
     <div class="form-group">
-        <label>Telefono</label> <input th:field="*{phone}" type="text" class="form-control"/>
+        <label>Telefono</label>
+        <input th:field="*{phone}" type="text" class="form-control"/>
+        <div th:if="${#fields.hasErrors('phone')}">
+            <span th:errors="*{phone}" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input th:field="*{email}" type="text" class="form-control"/>
+        <div th:if="${#fields.hasErrors('email')}">
+            <span th:errors="*{email}" class="text-danger"></span>
+        </div>
     </div>
     <div class="form-group">
         <input class="btn btn-primary" type="submit" value="Salva"/>
