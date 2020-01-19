@@ -19,6 +19,7 @@ class ContactController {
 
     @PostMapping("/new")
     ModelAndView handleNewContactSubmission(@ModelAttribute ContactForm contactForm) {
+        // TODO salvataggio dati contatto
         return new ModelAndView("contact-details")
                 .addObject("contact", contactForm);
     }
