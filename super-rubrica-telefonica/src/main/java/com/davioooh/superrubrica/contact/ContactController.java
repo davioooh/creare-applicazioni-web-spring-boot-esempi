@@ -40,7 +40,7 @@ class ContactController {
     }
 
     @GetMapping
-    ModelAndView contactDetails(@RequestParam("id") String contactId) {
+    ModelAndView contactDetails(@RequestParam("id") long contactId) {
         return contactService.getContact(contactId)
                 .map(c -> new ModelAndView("contact-details")
                         .addObject("contact", c))

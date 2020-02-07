@@ -2,28 +2,32 @@ package com.davioooh.superrubrica.contact;
 
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 class ContactService {
+    private ContactRepository contactRepository;
 
-    private Map<String, Contact> db = new HashMap<>();
+    public ContactService(ContactRepository contactRepository) {
+        this.contactRepository = contactRepository;
+    }
 
     public Contact saveContact(ContactForm contactForm) {
+        Contact c = mapContact(contactForm);
+        return contactRepository.create(c);
+    }
+
+    private Contact mapContact(ContactForm contactForm) {
         Contact c = new Contact();
-        c.setId(UUID.randomUUID().toString());
         c.setFirstName(contactForm.getFirstName());
         c.setLastName(contactForm.getLastName());
         c.setPhone(contactForm.getPhone());
         c.setEmail(contactForm.getEmail());
-        db.put(c.getId(), c);
         return c;
     }
 
-    public Optional<Contact> getContact(String contactId) {
-        return Optional.ofNullable(db.get(contactId));
+    public Optional<Contact> getContact(long contactId) {
+        return contactRepository.findById(contactId);
     }
+
 }
