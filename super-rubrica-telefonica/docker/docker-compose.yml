@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  super-rubrica-db:
+    image: postgres:11.7
+    environment:
+      - POSTGRES_PASSWORD=rubrica20
+      - POSTGRES_DB=super_rubrica_db
+    ports:
+      - 5433:5432
