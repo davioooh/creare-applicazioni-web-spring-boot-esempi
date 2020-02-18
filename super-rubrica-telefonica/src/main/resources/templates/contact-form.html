@@ -12,34 +12,10 @@
 <form th:action="@{/contacts/new}" th:object="${contactForm}"
       method="post" class="narrow">
     <h2>Nuovo contatto</h2>
-    <div class="form-group">
-        <label>Nome</label>
-        <input th:field="*{firstName}" type="text" class="form-control"/>
-        <div th:if="${#fields.hasErrors('firstName')}">
-            <span th:errors="*{firstName}" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label>Cognome</label>
-        <input th:field="*{lastName}" type="text" class="form-control"/>
-        <div th:if="${#fields.hasErrors('lastName')}">
-            <span th:errors="*{lastName}" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label>Telefono</label>
-        <input th:field="*{phone}" type="text" class="form-control"/>
-        <div th:if="${#fields.hasErrors('phone')}">
-            <span th:errors="*{phone}" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label>Email</label>
-        <input th:field="*{email}" type="text" class="form-control"/>
-        <div th:if="${#fields.hasErrors('email')}">
-            <span th:errors="*{email}" class="text-danger"></span>
-        </div>
-    </div>
+    <div th:replace="form-controls :: text-input (fieldName='firstName', fieldLabel='Nome')"></div>
+    <div th:replace="form-controls :: text-input (fieldName='lastName', fieldLabel='Cognome')"></div>
+    <div th:replace="form-controls :: text-input (fieldName='phone', fieldLabel='Telefono')"></div>
+    <div th:replace="form-controls :: text-input (fieldName='email', fieldLabel='Email')"></div>
     <div class="form-group">
         <input class="btn btn-primary" type="submit" value="Salva"/>
     </div>
