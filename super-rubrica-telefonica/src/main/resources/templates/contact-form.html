@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{main-layout}">
 <head>
-    <meta charset="utf-8"/>
     <title>Nuovo contatto</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" th:href="@{/main.css}"/>
 </head>
 <body>
-<form th:action="@{/contacts/new}" th:object="${contactForm}"
-      method="post" class="narrow">
-    <h2>Nuovo contatto</h2>
-    <div th:replace="form-controls :: text-input (fieldName='firstName', fieldLabel='Nome')"></div>
-    <div th:replace="form-controls :: text-input (fieldName='lastName', fieldLabel='Cognome')"></div>
-    <div th:replace="form-controls :: text-input (fieldName='phone', fieldLabel='Telefono')"></div>
-    <div th:replace="form-controls :: text-input (fieldName='email', fieldLabel='Email')"></div>
-    <div class="form-group">
-        <input class="btn btn-primary" type="submit" value="Salva"/>
-    </div>
-</form>
+<section layout:fragment="content">
+    <form th:action="@{/contacts/new}" th:object="${contactForm}"
+          method="post" class="narrow">
+        <h2>Nuovo contatto</h2>
+        <div th:replace="form-controls :: text-input (fieldName='firstName', fieldLabel='Nome')"></div>
+        <div th:replace="form-controls :: text-input (fieldName='lastName', fieldLabel='Cognome')"></div>
+        <div th:replace="form-controls :: text-input (fieldName='phone', fieldLabel='Telefono')"></div>
+        <div th:replace="form-controls :: text-input (fieldName='email', fieldLabel='Email')"></div>
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" value="Salva"/>
+        </div>
+    </form>
+</section>
 </body>
 </html>
