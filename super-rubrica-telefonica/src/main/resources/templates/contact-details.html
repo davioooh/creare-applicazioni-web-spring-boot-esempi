@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{main-layout}">
 <head>
-    <meta charset="utf-8"/>
     <title th:text="${'Contatto - ' + contact.firstName + ' ' + contact.lastName}"></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" th:href="@{/main.css}"/>
 </head>
 <body>
-<div class="dtl-body">
-    <div th:if="${newContact != null}" class="alert alert-success" role="alert">
-        Contatto creato correttamente
+<section layout:fragment="content">
+    <div class="narrow">
+        <div th:if="${newContact != null}" class="alert alert-success" role="alert">
+            Contatto creato correttamente
+        </div>
+        <h2 th:text="${contact.firstName + ' ' + contact.lastName}"></h2>
+        <div>
+            <strong>Telefono: </strong> <span th:text="${contact.phone}"></span>
+        </div>
+        <div>
+            <strong>Email: </strong> <span th:text="${contact.email}"></span>
+        </div>
     </div>
-    <h2 th:text="${contact.firstName + ' ' + contact.lastName}"></h2>
-    <div>
-        <strong>Telefono: </strong> <span th:text="${contact.phone}"></span>
-    </div>
-    <div>
-        <strong>Email: </strong> <span th:text="${contact.email}"></span>
-    </div>
-</div>
+</section>
 </body>
 </html>

@@ -2,6 +2,6 @@ body {
 	padding: 20px;
 }
 
-form, .dtl-body {
+.narrow {
 	max-width: 300px;
 }
