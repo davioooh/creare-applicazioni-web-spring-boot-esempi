@@ -5,3 +5,9 @@ CREATE TABLE IF NOT EXISTS contacts (
     phone varchar(100) NOT NULL,
     email varchar(100) DEFAULT NULL
 );
+
+CREATE TABLE IF NOT EXISTS users (
+    id serial PRIMARY KEY,
+    username varchar(100) NOT NULL,
+    password varchar(100) NOT NULL
+);
