@@ -11,3 +11,7 @@ CREATE TABLE IF NOT EXISTS users (
     username varchar(100) NOT NULL,
     password varchar(100) NOT NULL
 );
+
+INSERT INTO users (id, username, password)
+ VALUES (1, 'testuser', '{noop}pwd')
+ ON CONFLICT DO NOTHING;
