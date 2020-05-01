@@ -14,7 +14,7 @@ class ContactService {
 
     public Contact saveContact(ContactForm contactForm) {
         Contact c = mapContact(contactForm);
-        return contactRepository.create(c);
+        return contactRepository.save(c);
     }
 
     private Contact mapContact(ContactForm contactForm) {

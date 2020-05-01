@@ -33,7 +33,7 @@ public class ContactRepository {
         }
     }
 
-    public Contact create(Contact contact) {
+    public Contact save(Contact contact) {
         String sql = "insert into contacts (first_name, last_name, phone, email) values (?, ?, ?, ?)";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
