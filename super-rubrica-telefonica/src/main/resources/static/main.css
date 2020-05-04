@@ -5,3 +5,12 @@ body {
 .narrow {
 	max-width: 300px;
 }
+
+.page-header > h1 {
+    float: left;
+}
+
+.logout-form {
+    float: right;
+    margin-top: 10px;
+}
