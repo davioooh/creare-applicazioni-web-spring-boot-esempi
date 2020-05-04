@@ -25,7 +25,8 @@ public class ContactRepository {
                     jdbcTemplate.queryForObject(
                             "select * from contacts where id = ?",
                             new ContactRowMapper(),
-                            id)
+                            id
+                    )
             );
         } catch (IncorrectResultSizeDataAccessException ex) {
             return Optional.empty();
