@@ -16,9 +16,11 @@
     <header class="page-header clearfix">
         <h1>SuperRubricaTelefonica!</h1>
 
-        <form class="logout-form" method="post" th:action="@{/logout}">
-            <input class="btn btn-outline-secondary" type="submit" value="Esci"/>
-        </form>
+        <div class="user-session-box">
+            <form method="post" th:action="@{/logout}">
+                <input class="btn btn-outline-secondary" type="submit" value="Esci"/>
+            </form>
+        </div>
     </header>
     <section layout:fragment="content" class="mt-4">
     </section>
