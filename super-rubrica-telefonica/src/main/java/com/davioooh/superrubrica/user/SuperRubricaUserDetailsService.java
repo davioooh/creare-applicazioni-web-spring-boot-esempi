@@ -1,7 +1,5 @@
-package com.davioooh.superrubrica.security;
+package com.davioooh.superrubrica.user;
 
-import com.davioooh.superrubrica.user.User;
-import com.davioooh.superrubrica.user.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
