@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 class IndexController {
     @GetMapping("/")
     String indexPage() {
-        return "index";
+        return "redirect:/contacts";
     }
 }
