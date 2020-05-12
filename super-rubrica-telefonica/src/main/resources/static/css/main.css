@@ -10,7 +10,11 @@ body {
     float: left;
 }
 
-.logout-form {
+.user-session-box {
     float: right;
     margin-top: 10px;
+}
+
+.user-session-box > * {
+    float: right;
 }

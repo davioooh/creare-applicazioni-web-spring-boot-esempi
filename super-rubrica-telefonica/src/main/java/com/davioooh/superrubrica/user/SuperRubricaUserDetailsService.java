@@ -1,7 +1,5 @@
-package com.davioooh.superrubrica.security;
+package com.davioooh.superrubrica.user;
 
-import com.davioooh.superrubrica.user.User;
-import com.davioooh.superrubrica.user.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -26,7 +24,7 @@ public class SuperRubricaUserDetailsService implements UserDetailsService {
         return org.springframework.security.core.userdetails.User.builder()
                 .username(user.getUsername())
                 .password(user.getPassword())
-                .roles("USER")
+                .roles(user.getRoles().toArray(new String[0]))
                 .build();
     }
 
