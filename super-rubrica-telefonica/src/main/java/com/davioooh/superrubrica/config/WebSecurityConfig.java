@@ -17,7 +17,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests(authorizeRequests ->
-                        authorizeRequests.anyRequest().authenticated()
+                        authorizeRequests
+                                .mvcMatchers("/user-stats").hasRole("ADMIN")
+                                .anyRequest().authenticated()
                 )
                 .formLogin(login ->
                         login.loginPage("/login").permitAll()
