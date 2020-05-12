@@ -18,7 +18,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
-                                .mvcMatchers("/user-stats").hasRole("ADMIN")
+                                .mvcMatchers("/stats").hasRole("ADMIN")
                                 .anyRequest().authenticated()
                 )
                 .formLogin(login ->

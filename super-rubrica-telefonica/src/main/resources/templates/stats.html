@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html layout:decorate="~{main-layout}"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Statistiche utenti</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="narrow">
+        <h2>Statistiche utenti</h2>
+        <table class="table" th:unless="${#lists.isEmpty(stats)}">
+            <tr><th>User</th><th>Contatti in rubrica</th></tr>
+            <tr th:each="s : ${stats}">
+                <td th:text="${s.username}"></td>
+                <td th:text="${s.contactsCount}"></td>
+            </tr>
+        </table>
+        <div class="text-muted"
+             th:if="${#lists.isEmpty(stats)}">Nessun dato da visualizzare.
+        </div>
+    </div>
+</section>
+</body>
+</html>
