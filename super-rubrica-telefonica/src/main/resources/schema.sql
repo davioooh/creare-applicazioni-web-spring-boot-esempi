@@ -15,3 +15,6 @@ CREATE TABLE IF NOT EXISTS users (
 INSERT INTO users (id, username, password)
  VALUES (1, 'testuser', '{noop}pwd')
  ON CONFLICT DO NOTHING;
+
+ALTER TABLE contacts ADD COLUMN IF NOT EXISTS owner_username varchar(100) NOT NULL DEFAULT 'testuser';
+ALTER TABLE contacts ALTER COLUMN owner_username DROP DEFAULT;
