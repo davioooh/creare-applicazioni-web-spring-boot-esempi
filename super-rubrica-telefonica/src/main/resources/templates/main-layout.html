@@ -15,7 +15,10 @@
 <body>
 <div>
     <header class="page-header clearfix">
-        <h1>SuperRubricaTelefonica!</h1>
+        <h1><a th:href="@{/}">SuperRubricaTelefonica!</a></h1>
+        <div class="menu-box mx-4">
+            <a class="btn btn-link" sec:authorize-url="/stats" th:href="@{/stats}">Statistiche utenti</a>
+        </div>
 
         <div class="user-session-box" sec:authorize="isAuthenticated()">
             <form method="post" th:action="@{/logout}">

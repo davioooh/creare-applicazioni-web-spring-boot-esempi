@@ -18,3 +18,8 @@ body {
 .user-session-box > * {
     float: right;
 }
+
+.menu-box {
+    float: left;
+    margin-top: 10px;
+}
