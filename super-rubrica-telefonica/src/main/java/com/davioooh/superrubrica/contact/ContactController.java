@@ -61,7 +61,7 @@ class ContactController {
 
     private String authenticatedUserName() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth == null) {
+        if (auth == null || !auth.isAuthenticated()) {
             throw new IllegalStateException("Missing authentication");
         }
         Object principal = auth.getPrincipal();
