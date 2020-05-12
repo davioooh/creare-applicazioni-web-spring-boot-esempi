@@ -1,9 +1,12 @@
 package com.davioooh.superrubrica.user;
 
+import java.util.Collection;
+
 public class User {
     private Long id;
     private String username;
     private String password;
+    private Collection<String> roles;
 
     public Long getId() {
         return id;
@@ -29,4 +32,11 @@ public class User {
         this.password = password;
     }
 
+    public Collection<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Collection<String> roles) {
+        this.roles = roles;
+    }
 }
