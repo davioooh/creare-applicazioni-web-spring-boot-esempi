@@ -55,7 +55,7 @@ class ContactController {
         return new ModelAndView("contacts-list")
                 .addObject(
                         "contacts",
-                        contactService.getAllContacts(authenticatedUserName())
+                        contactService.getUserContacts(authenticatedUserName())
                 );
     }
 

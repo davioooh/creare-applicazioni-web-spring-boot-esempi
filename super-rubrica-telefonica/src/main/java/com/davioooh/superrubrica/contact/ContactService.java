@@ -32,7 +32,7 @@ class ContactService {
         return contactRepository.findByIdAndOwnerUsername(contactId, ownerUsername);
     }
 
-    public Collection<Contact> getAllContacts(String ownerUsername) {
+    public Collection<Contact> getUserContacts(String ownerUsername) {
         return contactRepository.findByOwnerId(ownerUsername);
     }
 
