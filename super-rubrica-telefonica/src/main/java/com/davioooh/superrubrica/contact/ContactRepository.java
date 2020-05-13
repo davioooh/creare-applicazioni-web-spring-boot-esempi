@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+import java.util.Collection;
 import java.util.Optional;
 
 @Repository
@@ -34,7 +35,7 @@ public class ContactRepository {
     }
 
     public Contact save(Contact contact) {
-        String sql = "insert into contacts (first_name, last_name, phone, email) values (?, ?, ?, ?)";
+        String sql = "insert into contacts (first_name, last_name, phone, email, owner_username) values (?, ?, ?, ?, ?)";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(connection -> {
@@ -44,12 +45,35 @@ public class ContactRepository {
             preparedStatement.setString(2, contact.getLastName());
             preparedStatement.setString(3, contact.getPhone());
             preparedStatement.setString(4, contact.getEmail());
+            preparedStatement.setString(5, contact.getOwnerUsername());
             return preparedStatement;
         }, keyHolder);
 
         String keyAsString = keyHolder.getKeys().get("id").toString();
         contact.setId(Long.parseLong(keyAsString));
         return contact;
+    }
+
+    public Collection<Contact> findByOwnerId(String ownerUsername) {
+        return jdbcTemplate.query(
+                "select * from contacts where owner_username = ?",
+                new ContactRowMapper(),
+                ownerUsername
+        );
+    }
+
+    public Optional<Contact> findByIdAndOwnerUsername(long contactId, String ownerUsername) {
+        try {
+            return Optional.ofNullable(
+                    jdbcTemplate.queryForObject(
+                            "select * from contacts where id = ? and owner_username = ?",
+                            new ContactRowMapper(),
+                            contactId, ownerUsername
+                    )
+            );
+        } catch (IncorrectResultSizeDataAccessException ex) {
+            return Optional.empty();
+        }
     }
 
     static class ContactRowMapper extends BeanPropertyRowMapper<Contact> {

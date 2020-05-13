@@ -6,6 +6,7 @@ public class Contact {
     private String lastName;
     private String phone;
     private String email;
+    private String ownerUsername;
 
     public Long getId() {
         return id;
@@ -45,6 +46,14 @@ public class Contact {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getOwnerUsername() {
+        return ownerUsername;
+    }
+
+    public void setOwnerUsername(String ownerUsername) {
+        this.ownerUsername = ownerUsername;
     }
 
 }
