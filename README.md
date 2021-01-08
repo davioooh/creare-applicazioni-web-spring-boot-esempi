@@ -1,6 +1,6 @@
 # Creare Applicazioni Web con Spring Boot: esempi
 
-Gli esempi completi del libro ["Creare applicazioni web con Spring Boot"](https://leanpub.com/creare-applicazioni-web-spring-boot)
+Questo repository contiene il codice dei progetti presentati nell'ebook ["Creare applicazioni web con Spring Boot"](https://leanpub.com/creare-applicazioni-web-spring-boot)
 
 
 ## Progetti
